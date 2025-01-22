@@ -5,26 +5,26 @@ const labels = createLabels(inputs);
 const fields = document.querySelectorAll('.field');
 
 addPlaceholder(inputs);
-appendLabelsToFields(fields);
+appendLabelsToFields(fields, labels);
 
 function createLabels(inputs) {
   const labels = [];
 
   for (const input of inputs) {
-    let newElem = document.createElement('label');
+    const newElem = document.createElement('label');
 
     newElem.className = 'field-label';
     newElem.id = input.id;
     newElem.textContent = input.name.toUpperCase();
 
     labels.push(newElem);
-  };
+  }
 
   return labels;
 }
 
 function addPlaceholder(inputs) {
-  const newInputs= [];
+  const newInputs = [];
 
   for (const input of inputs) {
     input.placeholder = input.name.toUpperCase();
@@ -34,9 +34,8 @@ function addPlaceholder(inputs) {
   return newInputs;
 }
 
-function appendLabelsToFields(fields) {
+function appendLabelsToFields(fields, labels) {
   for (let i = 0; i < fields.length; i++) {
     fields[i].prepend(labels[i]);
   }
 }
-
